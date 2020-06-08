@@ -2,6 +2,7 @@ import MoviesDAO from "../src/dao/moviesDAO"
 
 describe("Projection", () => {
   beforeAll(async () => {
+    jest.setTimeout(50000) // 1 second
     await MoviesDAO.injectDB(global.mflixClient)
   })
 
