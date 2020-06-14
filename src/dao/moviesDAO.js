@@ -244,6 +244,7 @@ export default class MoviesDAO {
         .find(query)
         .project(project)
         .sort(sort)
+        .skip(moviesPerPage * page)
     } catch (e) {
       console.error(`Unable to issue find command, ${e}`)
       return { moviesList: [], totalNumMovies: 0 }
@@ -264,6 +265,7 @@ export default class MoviesDAO {
 
     try {
       const moviesList = await displayCursor.toArray()
+
       const totalNumMovies = page === 0 ? await movies.countDocuments(query) : 0
 
       return { moviesList, totalNumMovies }
