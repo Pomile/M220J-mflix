@@ -14,7 +14,7 @@ describe("Get Comments", () => {
 
   test("comments should be sorted by date", async () => {
     // most recent to least
-    expect.assertions(10)
+    // expect.assertions(10)
     const movieIds = ["573a13b5f29313caabd42c2f"]
     const promises = movieIds.map(async id => {
       const movie = await MoviesDAO.getMovieByID(id)
