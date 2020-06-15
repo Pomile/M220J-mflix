@@ -67,6 +67,7 @@ describe("Create/Update Comments", () => {
       newCommentText,
       date,
     )
+
     expect(updateCommentResult.modifiedCount).toBe(1)
 
     const movieComments = (await MoviesDAO.getMovieByID(movieId)).comments
