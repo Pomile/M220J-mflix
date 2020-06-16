@@ -1,11 +1,11 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv"
 import app from "./server"
 import { MongoClient } from "mongodb"
 import MoviesDAO from "../src/dao/moviesDAO"
 import UsersDAO from "./dao/usersDAO"
 import CommentsDAO from "./dao/commentsDAO"
 
-dotenv.config();
+dotenv.config()
 
 const port = process.env.PORT || 8000
 
@@ -29,7 +29,7 @@ MongoClient.connect(
   // Set the poolSize to 50 connections.
   // TODO: Timeouts
   // Set the write timeout limit to 2500 milliseconds.
-  { useNewUrlParser: true },
+  { useNewUrlParser: true, poolSize: 50, wtimeout: 2500 },
 )
   .catch(err => {
     console.error(err.stack)
