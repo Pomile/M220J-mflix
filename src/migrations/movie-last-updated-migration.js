@@ -49,7 +49,7 @@ require("dotenv").config()
     // TODO: Complete the BulkWrite statement below
     const { modifiedCount } = await mflix
       .collection("movies")
-      .bulkWrite(moviesToMigrate)
+      .bulkWrite(moviesToMigrate, { ordered: false })
 
     console.log("\x1b[32m", `${modifiedCount} documents updated`)
     client.close()
